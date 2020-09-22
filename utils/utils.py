@@ -119,6 +119,7 @@ def make_class_label(mask):
 # 把0,1,2...这样的类别标签转化为one_hot
 def make_one_hot(targets, num_classes):
     assert len(targets.size()) in [2, 3]
+    targets = targets.unsqueeze(1)
     label = []
     for i in range(num_classes):
         label.append((targets == i).float())
